@@ -12,6 +12,8 @@
 
 // "col1top col2top col3top col4top col1bottom col2bottom col3bottom col4bottom 
 //  row1left row2left row3left row4left row1right row2right row3right row4right"
+
+///////////////////past of redundant/////////////////////
 int	count_forward(int *line)
 {
 	int	i;
@@ -67,7 +69,6 @@ int	check_row(int grid[4][4], int data[16], int row)
 		row_line[i] = grid[row][i];
 		i++;
 	}
-	// โค้ดที่ถูกต้อง
 	count_left = count_forward(row_line);
 	count_right = count_backward(row_line);
 	if (count_left != data[8 + row] || count_right != data[12 + row])
@@ -94,3 +95,4 @@ int	check_col(int grid[4][4], int data[16], int col)
 		return (0);
 	return (1);
 }
+///////////////////past of redundant/////////////////////
