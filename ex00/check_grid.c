@@ -56,11 +56,20 @@ int	count_backward(int *line)
 
 int	check_row(int grid[4][4], int data[16], int row)
 {
+	int	i;
+	int	row_line[4];
 	int	count_left;
 	int	count_right;
 
-	count_left = count_forward(grid[row]);
-	count_right = count_backward(grid[row]);
+	i = 0;
+	while (i < 4)
+	{
+		row_line[i] = grid[row][i];
+		i++;
+	}
+	// โค้ดที่ถูกต้อง
+	count_left = count_forward(row_line);
+	count_right = count_backward(row_line);
 	if (count_left != data[8 + row] || count_right != data[12 + row])
 		return (0);
 	return (1);
@@ -79,8 +88,8 @@ int	check_col(int grid[4][4], int data[16], int col)
 		col_line[i] = grid[i][col];
 		i++;
 	}
-	count_up = count_visible_forward(col_line);
-	count_down = count_visible_backward(col_line);
+	count_up = count_forward(col_line);
+	count_down = count_backward(col_line);
 	if (count_up != data[col] || count_down != data[4 + col])
 		return (0);
 	return (1);
